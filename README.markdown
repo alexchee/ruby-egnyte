@@ -33,6 +33,13 @@ session.create_access_token('the_access_token_returned')
 
 The client initialized, we can start interacting with the Egnyte API.
 
+Note:
+You can add a parameters to authorize_url, 
+Ex. To limit access only for the filesystem, add a :scope option to authorize_url
+```
+session.authorize_url('https://127.0.0.1/oauth2callback', scope: "Egnyte.filesystem")
+```
+
 Folders
 ------
 

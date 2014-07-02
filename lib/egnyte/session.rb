@@ -22,8 +22,9 @@ module Egnyte
       @access_token = OAuth2::AccessToken.new(@client, opts[:access_token]) if opts[:access_token]
     end
 
-    def authorize_url(redirect_uri)
-      @client.implicit.authorize_url(:redirect_uri => redirect_uri)
+    def authorize_url(redirect_uri, params ={})
+      params.merge!(:redirect_uri => redirect_uri)
+      @client.implicit.authorize_url(params)
     end
 
     def create_access_token(token)
